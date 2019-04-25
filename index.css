@@ -7,3 +7,7 @@
 #homeInput {
     margin-top: 300px;
 }
+
+.hidden {
+    display: none;
+}
