@@ -9,11 +9,13 @@ function formatParams(params){
 }
 
 function displayResults(responseJson) {
-	for (let i = 0 ; i < responseJson.results.length; i++){
+   console.log(responseJson.Similar.Results.length);
+   console.log("hello");
+	for (let i = 0 ; i < responseJson.Similar.Results.length; i++){
+      console.log($('#results-list'));
 		$('#results-list').append(`
-			<li><p>${responseJson.results[i].name}</p></li>`
+			<li><p>${responseJson.Similar.Results[i].name}</p></li>`
       )};
-      $('#results').removeClass('hidden');
 } 
 
 function getShow(searchTerm) {
@@ -25,10 +27,8 @@ function getShow(searchTerm) {
 	 
 	 const queryString = formatParams(params);
 	 const url = searchURL + '?' + queryString;
-
-   fetch(url, {
-      mode: 'no-cors'
-   })
+    console.log(url);
+   fetch(url)
       .then(response => {
          if (response.ok) {
             return response.json();
