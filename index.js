@@ -9,9 +9,11 @@ function formatParams(params){
 }
 
 function displayResults(responseJson) {
-   $('#searchBar').append(`
-      <input type = 'text' id='resultsInput' placeholder = "Search Another Show" required>
-      <button type = 'submit' class= 'resultsButton'>Back to Home Screen</button>`
+   $('#resultsInfo').empty();
+   $('#results-list').empty();
+   $('form').append(`
+      <input type = 'text' id='homeInput' class = 'searchInput' placeholder = "Search Another Show" required>
+      <button type = 'submit' class= 'homeButton'>Search</button>`
    );
    for (let i = 0 ; i < responseJson.Similar.Info.length; i++){
    $('#resultsInfo').append(`
