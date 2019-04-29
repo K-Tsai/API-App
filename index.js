@@ -9,20 +9,33 @@ function formatParams(params){
 }
 
 function displayResults(responseJson) {
-   console.log(responseJson.Similar.Results.length);
-   console.log("hello");
-	for (let i = 0 ; i < responseJson.Similar.Results.length; i++){
-      console.log($('#results-list'));
-		$('#results-list').append(`
-			<li><p>${responseJson.Similar.Results[i].name}</p></li>`
-      )};
+   $('#searchBar').append(`
+      <input type = 'text' id='resultsInput' placeholder = "Search Another Show" required>
+      <button type = 'submit' class= 'resultsButton'>Back to Home Screen</button>`
+   );
+   for (let i = 0 ; i < responseJson.Similar.Info.length; i++){
+   $('#resultsInfo').append(`
+      <h1>${responseJson.Similar.Info[i].Name}</h1>
+      <iframe width="420" height="315"
+      src="${responseJson.Similar.Info[i].yUrl}">
+      </iframe>
+      <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
+   };
+   for (let i = 0; i < responseJson.Similar.Results.length; i++) {
+      $('#results-list').append(`
+      <li>
+      <a href = '${responseJson.Similar.Results[i].yUrl}' target='blank'>${responseJson.Similar.Results[i].Name}</a></li>`)
+   };
+   
+
 } 
 
-function getShow(searchTerm) {
+function getShow(searchTerm, limit = 6) {
     const params = {
       k: apiKey,
       q: searchTerm,
       info: 1,
+      limit
 	 }
 	 
 	 const queryString = formatParams(params);
