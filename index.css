@@ -1,7 +1,7 @@
 .container {
     display: block;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 #homeInput {
@@ -19,8 +19,14 @@
     margin-top: 150px;
 }
 
-h1{
+.showDesc {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.homeTitle{
     display:block;
+    margin-top: 200px;
 }
 
 .button {
@@ -43,9 +49,7 @@ a {
     border: 2px solid black;
 }
 
-h1{
-    margin-top: 50px;
-}
+
 
 .searchInput {
     margin-top: 0px;

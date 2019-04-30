@@ -1,4 +1,3 @@
-
 const apiKey= '335136-ShowFind-BZJT4Z3C'
 const searchURL = 'https://tastedive.com/api/similar'
 
@@ -12,13 +11,13 @@ function displayResults(responseJson) {
    $('#resultsInfo').empty();
    $('#results-list').empty();
    $('form').append(`
-      <input type = 'text' id='homeInput' class = 'searchInput' placeholder = "Search Another Show" required>
+      <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
       <button type = 'submit' class= 'homeButton'>Search</button>`
    );
    for (let i = 0 ; i < responseJson.Similar.Info.length; i++){
    $('#resultsInfo').append(`
       <h1>${responseJson.Similar.Info[i].Name}</h1>
-      <iframe width="420" height="315"
+      <iframe class = 'video' width="420" height="315"
       src="${responseJson.Similar.Info[i].yUrl}">
       </iframe>
       <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
@@ -28,8 +27,6 @@ function displayResults(responseJson) {
       <li>
       <a href = '${responseJson.Similar.Results[i].yUrl}' target='blank'>${responseJson.Similar.Results[i].Name}</a></li>`)
    };
-   
-
 } 
 
 function getShow(searchTerm, limit = 6) {
@@ -59,9 +56,9 @@ function getShow(searchTerm, limit = 6) {
 function watchForm() {
    $('form').submit(event => {
       event.preventDefault();
-      const searchTerm = $('#homeInput').val();
+      const searchTerm = $('.homeInput').val();
       $('form').empty()
-		getShow(searchTerm);
+      getShow(searchTerm);
    });
 }
 
