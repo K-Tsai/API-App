@@ -1,5 +1,6 @@
 const apiKey= '335136-ShowFind-BZJT4Z3C'
 const searchURL = 'https://tastedive.com/api/similar'
+const corsURL= "https://cors-anywhere.herokuapp.com/"
 
 function formatParams(params){
    const queryItems = Object.keys(params)
@@ -38,8 +39,8 @@ function getShow(searchTerm, limit = 6) {
 	 }
 	 
 	 const queryString = formatParams(params);
-	 const url = searchURL + '?' + queryString;
-    console.log(url);
+    const url = corsURL + searchURL + '?' + queryString;
+    
    fetch(url)
       .then(response => {
          if (response.ok) {

@@ -49,10 +49,12 @@ a {
     border: 2px solid black;
 }
 
-
-
 .searchInput {
     margin-top: 0px;
 }
 
 
+#js-error-message {
+    text-align: center;
+    color:red;
+}
