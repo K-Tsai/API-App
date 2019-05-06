@@ -8,9 +8,22 @@ function formatParams(params){
       return queryItems.join('&');
 }
 
-function displayResults(responseJson) {
+function empty() {
+   $('form').empty()
    $('#resultsInfo').empty();
    $('#results-list').empty();
+}
+function clickRec() {
+   $('#results-list').on('click', 'a', function(event) {
+      empty();
+      let targetEvent = event.target;
+      let targetValue = $(targetEvent).text();
+      getShow(targetValue);
+   });
+}
+
+function displayResults(responseJson) {
+   empty();
    $('form').append(`
       <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
       <button type = 'submit' class= 'homeButton'>Search</button>`
@@ -26,7 +39,7 @@ function displayResults(responseJson) {
    for (let i = 0; i < responseJson.Similar.Results.length; i++) {
       $('#results-list').append(`
       <li>
-      <a href = '${responseJson.Similar.Results[i].yUrl}' target='blank'>${responseJson.Similar.Results[i].Name}</a></li>`)
+      <a>${responseJson.Similar.Results[i].Name}</a></li>`)
    };
 } 
 
@@ -58,9 +71,13 @@ function watchForm() {
    $('form').submit(event => {
       event.preventDefault();
       const searchTerm = $('.homeInput').val();
-      $('form').empty()
+      empty();
       getShow(searchTerm);
    });
 }
 
-$(watchForm);
+function results(){
+   watchForm()
+   clickRec();
+}
+$(results);
