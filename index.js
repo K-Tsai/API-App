@@ -1,6 +1,8 @@
-const apiKey= '335136-ShowFind-BZJT4Z3C'
-const searchURL = 'https://tastedive.com/api/similar'
-const corsURL= "https://cors-anywhere.herokuapp.com/"
+const apiKey= '335136-ShowFind-BZJT4Z3C';
+const youTubeApiKey= "AIzaSyDY6tZooYg2-diCPVzj-QC97jxBZczDfSQ";
+const searchURL = 'https://tastedive.com/api/similar';
+const corsURL= "https://cors-anywhere.herokuapp.com/";
+const youTubeURL = "https://www.googleapis.com/youtube/v3/videos";  
 
 function formatParams(params){
    const queryItems = Object.keys(params)
@@ -13,6 +15,7 @@ function empty() {
    $('#resultsInfo').empty();
    $('#results-list').empty();
 }
+
 function clickRec() {
    $('#results-list').on('click', 'a', function(event) {
       empty();
@@ -43,6 +46,18 @@ function displayResults(responseJson) {
    };
 } 
 
+function getThumbnail (yID) {
+   const params = {
+      id: '2JAElThbKrI',
+      key: youTubeApiKey,
+      // part: snippet
+   }
+
+   const queryString = formatParams(params);
+   const url = youTubeURL + '?' + queryString;
+   console.log(url);
+} 
+
 function getShow(searchTerm, limit = 6) {
     const params = {
       k: apiKey,
@@ -53,6 +68,7 @@ function getShow(searchTerm, limit = 6) {
 	 
 	 const queryString = formatParams(params);
     const url = corsURL + searchURL + '?' + queryString;
+    console.log(url);
     
    fetch(url)
       .then(response => {
@@ -79,5 +95,6 @@ function watchForm() {
 function results(){
    watchForm()
    clickRec();
+   getThumbnail();
 }
 $(results);
