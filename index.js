@@ -17,7 +17,7 @@ function empty() {
 }
 
 function clickRec() {
-   $('#results-list').on('click', 'a', function(event) {
+   $('#results-list').on('click', 'li', function(event) {
       empty();
       let targetEvent = event.target;
       let targetValue = $(targetEvent).text();
@@ -41,21 +41,41 @@ function displayResults(responseJson) {
    };
    for (let i = 0; i < responseJson.Similar.Results.length; i++) {
       $('#results-list').append(`
-      <li>
-      <a>${responseJson.Similar.Results[i].Name}</a></li>`)
+      <li class= "resultItems">
+      ${responseJson.Similar.Results[i].Name}</li>`)
    };
 } 
 
-function getThumbnail (yID) {
+function displayThumbnail(responseJson) {
+   empty();
+   for (let i = 0; i < responseJson.items.length; i++){
+      $("#results-list").append(`
+         <p>${responseJson.items[i].id}</p>`) 
+   };
+}
+
+function getThumbnail () {
    const params = {
-      id: '2JAElThbKrI',
       key: youTubeApiKey,
-      // part: snippet
+      id: '2JAElThbKrI',
+      part: "snippet"
    }
 
    const queryString = formatParams(params);
    const url = youTubeURL + '?' + queryString;
    console.log(url);
+
+   fetch(url)
+      .then(response => {
+         if (response.ok) {
+            return response.json();
+         }
+         throw new Error(response.statusText);
+      })
+      .then(responseJson => displayThumbnail(responseJson))
+      .catch(err => {
+         $('#js-error-message').text(`Something went wrong: ${err.message}`);
+      });
 } 
 
 function getShow(searchTerm, limit = 6) {
@@ -89,12 +109,12 @@ function watchForm() {
       const searchTerm = $('.homeInput').val();
       empty();
       getShow(searchTerm);
+      getThumbnail();
    });
 }
 
 function results(){
    watchForm()
    clickRec();
-   getThumbnail();
 }
 $(results);
