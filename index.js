@@ -26,6 +26,7 @@ function clickRec() {
 }
 
 function displayResults(responseJson) {
+   console.log(responseJson);
    empty();
    $('form').append(`
       <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
@@ -40,24 +41,27 @@ function displayResults(responseJson) {
       <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
    };
    for (let i = 0; i < responseJson.Similar.Results.length; i++) {
+      
       $('#results-list').append(`
       <li class= "resultItems">
-      ${responseJson.Similar.Results[i].Name}</li>`)
+      ${responseJson.Similar.Results[i].Name}
+      </li>`)
    };
 } 
 
 function displayThumbnail(responseJson) {
+   console.log(responseJson);
    empty();
-   for (let i = 0; i < responseJson.items.length; i++){
-      $("#results-list").append(`
-         <p>${responseJson.items[i].id}</p>`) 
+   for (let i = 0; i < responseJson.items.length; i++) {
+      $("#resultItems").append(`
+         <img src=${responseJson.items[i].snippet.thumbnails.medium.url} alt="Results image">`) 
    };
 }
 
 function getThumbnail () {
    const params = {
       key: youTubeApiKey,
-      id: '2JAElThbKrI',
+      id: 'asdasdasd',
       part: "snippet"
    }
 
