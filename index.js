@@ -41,27 +41,27 @@ function displayResults(responseJson) {
       <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
    };
    for (let i = 0; i < responseJson.Similar.Results.length; i++) {
-      
-      $('#results-list').append(`
-      <li class= "resultItems">
-      ${responseJson.Similar.Results[i].Name}
-      </li>`)
+      getThumbnail(responseJson.Similar.Results[i].yID, responseJson.Similar.Results[i].Name);
    };
 } 
 
-function displayThumbnail(responseJson) {
+function displayThumbnail(responseJson, showName) {
+   console.log(showName);
    console.log(responseJson);
-   empty();
    for (let i = 0; i < responseJson.items.length; i++) {
-      $("#resultItems").append(`
-         <img src=${responseJson.items[i].snippet.thumbnails.medium.url} alt="Results image">`) 
+      $("#results-list").append(`
+         <li>
+            <p>${showName}</p>
+            <img src=${responseJson.items[i].snippet.thumbnails.medium.url} alt="Results image">
+         </li>`) 
    };
 }
 
-function getThumbnail () {
+function getThumbnail (youTubeID, showName) {
+   console.log(youTubeID);
    const params = {
       key: youTubeApiKey,
-      id: 'asdasdasd',
+      id: youTubeID,
       part: "snippet"
    }
 
@@ -76,7 +76,7 @@ function getThumbnail () {
          }
          throw new Error(response.statusText);
       })
-      .then(responseJson => displayThumbnail(responseJson))
+      .then(responseJson => displayThumbnail(responseJson, showName))
       .catch(err => {
          $('#js-error-message').text(`Something went wrong: ${err.message}`);
       });
