@@ -19,12 +19,11 @@
     margin-top: 150px;
 }
 
-.showDesc {
-    margin-top: 0px;
-    margin-bottom: 0px;
+#pressCursor {
+    cursor: pointer;
 }
 
-.homeTitle{
+.homeTitle {
     display:block;
     margin-top: 200px;
 }
@@ -35,19 +34,15 @@
     color: white;
 }
 
-p{
+.showDesc {
     width: 27%;
     text-align: left;
     float: right;
-    margin-right: 300px;
+    margin-right: 300px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-a {
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    border: 2px solid black;
-}
 
 .searchInput {
     margin-top: 0px;
