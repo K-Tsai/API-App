@@ -17,48 +17,54 @@ function empty() {
 }
 
 function clickRec() {
-   $('#results-list').on('click', 'li', function(event) {
+   $('#results-list').on('click', 'p', function(event) {
       empty();
       let targetEvent = event.target;
+      console.log(targetEvent);
       let targetValue = $(targetEvent).text();
       getShow(targetValue);
    });
 }
 
 function displayResults(responseJson) {
-   console.log(responseJson);
    empty();
-   $('form').append(`
-      <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
-      <button type = 'submit' class= 'homeButton'>Search</button>`
-   );
-   for (let i = 0 ; i < responseJson.Similar.Info.length; i++){
-   $('#resultsInfo').append(`
-      <h1>${responseJson.Similar.Info[i].Name}</h1>
-      <iframe class = 'video' width="420" height="315"
-      src="${responseJson.Similar.Info[i].yUrl}">
-      </iframe>
-      <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
-   };
-   for (let i = 0; i < responseJson.Similar.Results.length; i++) {
-      getThumbnail(responseJson.Similar.Results[i].yID, responseJson.Similar.Results[i].Name);
-   };
+   console.log(responseJson);
+   if (responseJson.Similar.Info[0].Type !== "unknown"){
+      $('form').append(`
+         <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
+         <button type = 'submit' class= 'homeButton'>Search</button>`
+      );
+      for (let i = 0 ; i < responseJson.Similar.Info.length; i++){
+      $('#resultsInfo').append(`
+         <h1>${responseJson.Similar.Info[i].Name}</h1>
+         <iframe class = 'video' width="420" height="315"
+         src="${responseJson.Similar.Info[i].yUrl}">
+         </iframe>
+         <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
+      };
+      for (let i = 0; i < responseJson.Similar.Results.length; i++) {
+         getThumbnail(responseJson.Similar.Results[i].yID, responseJson.Similar.Results[i].Name);
+      };
+   } else {
+      $('form').append(`
+         <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
+         <button type = 'submit' class= 'homeButton'>Search</button>
+         <p>Please Enter in a Valid Input</p>`
+      ); 
+   }
 } 
 
 function displayThumbnail(responseJson, showName) {
-   console.log(showName);
-   console.log(responseJson);
    for (let i = 0; i < responseJson.items.length; i++) {
       $("#results-list").append(`
          <li>
-            <p>${showName}</p>
-            <img src=${responseJson.items[i].snippet.thumbnails.medium.url} alt="Results image">
+            <p id = 'pressCursor'>${showName}</p>
+            <img src=${responseJson.items[i].snippet.thumbnails.high.url} alt="Results image" height= "200" width="200">
          </li>`) 
    };
 }
 
 function getThumbnail (youTubeID, showName) {
-   console.log(youTubeID);
    const params = {
       key: youTubeApiKey,
       id: youTubeID,
@@ -67,7 +73,6 @@ function getThumbnail (youTubeID, showName) {
 
    const queryString = formatParams(params);
    const url = youTubeURL + '?' + queryString;
-   console.log(url);
 
    fetch(url)
       .then(response => {
@@ -107,12 +112,14 @@ function getShow(searchTerm, limit = 6) {
       });
 }
 
-function watchForm() {
+function watchForm(youTubeID) {
    $('form').submit(event => {
       event.preventDefault();
       const searchTerm = $('.homeInput').val();
-      empty();
-      getShow(searchTerm);
+      empty(); 
+      if (searchTerm) {
+         getShow(searchTerm);
+      }
       getThumbnail();
    });
 }
