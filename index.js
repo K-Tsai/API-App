@@ -29,7 +29,7 @@ function clickRec() {
 function displayResults(responseJson) {
    empty();
    console.log(responseJson);
-   if (responseJson.Similar.Info[0].Type !== "unknown"){
+   if (responseJson.Similar.Info[0].Type !== "unknown" && responseJson.Similar.Info[0].wUrl !== null){
       $('form').append(`
          <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
          <button type = 'submit' class= 'homeButton'>Search</button>`

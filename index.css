@@ -8,6 +8,14 @@
     margin-top: 300px;
 }
 
+.homeTitle {
+    font-family: 'Ovo', serif;
+}
+
+.homeInput, .homeButton {
+    font-family: 'Muli', sans-serif;
+}
+
 .hidden {
     display: none;
 }
