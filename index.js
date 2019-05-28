@@ -17,12 +17,20 @@ function empty() {
 }
 
 function clickRec() {
-   $('#results-list').on('click', 'p', function(event) {
+   $('#results-list').on('click', 'li', function(event) {
       empty();
       let targetEvent = event.target;
-      console.log(targetEvent);
       let targetValue = $(targetEvent).text();
-      getShow(targetValue);
+      console.log(targetValue);
+      let targetSiblingEvent = $(event.target).siblings('#pressCursor');
+      let targetSiblingValue = $(targetSiblingEvent).text();
+      let pressCursorText = $('#pressCursor').text();
+      console.log(targetSiblingValue);
+      if (pressCursorText === targetValue)  {
+         getShow(targetValue);
+      } else {
+         getShow(targetSiblingValue);
+      }
    });
 }
 
