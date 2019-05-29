@@ -1,24 +1,55 @@
 .container {
     display: block;
     text-align: center;
-    margin-top: 100px;
-}
-
-#homeInput {
-    margin-top: 300px;
 }
 
 .homeTitle {
-    font-family: 'Ovo', serif;
+    font-family: 'Vollkorn', serif;
+    margin-bottom: 300px;
 }
 
-.homeInput, .homeButton {
-    font-family: 'Muli', sans-serif;
+.searchBar {
+    margin-bottom: 300px;
+}
+
+#thumbnail, img {
+    cursor: pointer;
+}
+
+.homeInput {
+    display: block;
+    font-family: 'Exo', sans-serif;
+    padding: 5px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 10%;
+    background: #f1f1f1;
+    margin-left: 42%;
+}
+
+.formTitle {
+    font-family: 'Vollkorn', serif;
+}
+
+.homeButton {
+    font-family: 'Exo', sans-serif;
+    display: block;
+    float: left;
+    width: 4%;
+    padding: 5px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
 }
 
 .hidden {
     display: none;
 }
+
 #results-list {
     list-style-type: none;
     display: flex;
@@ -29,10 +60,12 @@
 
 #pressCursor {
     cursor: pointer;
+    font-family: 'Exo', sans-serif;
+    font-weight: bold;
 }
 
 .homeTitle {
-    display:block;
+    display: block;
     margin-top: 200px;
 }
 
@@ -43,14 +76,14 @@
 }
 
 .showDesc {
-    width: 27%;
+    width: 35%;
     text-align: left;
     float: right;
     margin-right: 300px; 
     margin-top: 0px;
     margin-bottom: 0px;
+    font-family: 'Exo', sans-serif;
 }
-
 
 .searchInput {
     margin-top: 0px;

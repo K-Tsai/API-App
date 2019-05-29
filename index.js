@@ -21,31 +21,27 @@ function clickRec() {
       empty();
       let targetEvent = event.target;
       let targetValue = $(targetEvent).text();
-      console.log(targetValue);
       let targetSiblingEvent = $(event.target).siblings('#pressCursor');
       let targetSiblingValue = $(targetSiblingEvent).text();
-      let pressCursorText = $('#pressCursor').text();
-      console.log(targetSiblingValue);
-      if (pressCursorText === targetValue)  {
-         getShow(targetValue);
-      } else {
-         getShow(targetSiblingValue);
+      if(!targetValue) {
+         targetValue = targetSiblingValue;
       }
+      getShow(targetValue);
    });
 }
 
 function displayResults(responseJson) {
    empty();
    console.log(responseJson);
-   if (responseJson.Similar.Info[0].Type !== "unknown" && responseJson.Similar.Info[0].wUrl !== null){
+   if (responseJson.Similar.Info[0].Type !== "unknown" && responseJson.Similar.Info[0].wUrl !== null) {
       $('form').append(`
          <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
          <button type = 'submit' class= 'homeButton'>Search</button>`
       );
       for (let i = 0 ; i < responseJson.Similar.Info.length; i++){
       $('#resultsInfo').append(`
-         <h1>${responseJson.Similar.Info[i].Name}</h1>
-         <iframe class = 'video' width="420" height="315"
+         <h1 class= "formTitle">${responseJson.Similar.Info[i].Name}</h1>
+         <iframe class = 'video' width="520" height="415"
          src="${responseJson.Similar.Info[i].yUrl}">
          </iframe>
          <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
@@ -67,7 +63,7 @@ function displayThumbnail(responseJson, showName) {
       $("#results-list").append(`
          <li>
             <p id = 'pressCursor'>${showName}</p>
-            <img src=${responseJson.items[i].snippet.thumbnails.high.url} alt="Results image" height= "200" width="200">
+            <img src=${responseJson.items[i].snippet.thumbnails.high.url} id= thumbnail" alt="Results image" height= "200" width="200">
          </li>`) 
    };
 }
@@ -132,8 +128,10 @@ function watchForm(youTubeID) {
    });
 }
 
-function results(){
+function results() {
    watchForm()
    clickRec();
 }
+
+
 $(results);
