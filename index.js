@@ -33,7 +33,7 @@ function clickRec() {
 function displayResults(responseJson) {
    empty();
    console.log(responseJson);
-   if (responseJson.Similar.Info[0].Type !== "unknown" && responseJson.Similar.Info[0].wUrl !== null) {
+   if (responseJson.Similar.Info[0].Type !== "unknown" || responseJson.Similar.Info[0].wTeaser !== "") {
       $('form').append(`
          <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
          <button type = 'submit' class= 'homeButton'>Search</button>`
@@ -42,7 +42,7 @@ function displayResults(responseJson) {
       $('#resultsInfo').append(`
          <h1 class= "formTitle">${responseJson.Similar.Info[i].Name}</h1>
          <iframe class = 'video' width="520" height="415"
-         src="${responseJson.Similar.Info[i].yUrl}">
+         src="${responseJson.Similar.Info[i].yUrl}"> 
          </iframe>
          <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
       };

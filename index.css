@@ -1,11 +1,17 @@
+* {
+    background: #cdcdcd;
+}
 .container {
     display: block;
     text-align: center;
 }
 
 .homeTitle {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Alfa Slab One', serif;
     margin-bottom: 300px;
+    display: block;
+    margin-top: 200px;
+    color: #000000;
 }
 
 .searchBar {
@@ -18,30 +24,35 @@
 
 .homeInput {
     display: block;
-    font-family: 'Exo', sans-serif;
+    font-family: 'Gentium Book Basic', serif;
     padding: 5px;
-    font-size: 17px;
-    border: 1px solid grey;
+    font-size: 20px;
+    border: 2px solid #c06014;
     float: left;
     width: 10%;
-    background: #f1f1f1;
+    background: #eddbcd;
     margin-left: 42%;
+}
+form {
+    display: block;
 }
 
 .formTitle {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Alfa Slab One', serif;
+    color: #000000;
+    text-transform: uppercase;
 }
 
 .homeButton {
-    font-family: 'Exo', sans-serif;
+    font-family: 'Gentium Book Basic', serif;
     display: block;
-    float: left;
     width: 4%;
+    float: left;
     padding: 5px;
-    background: #2196F3;
+    background: #c06014;
     color: white;
-    font-size: 17px;
-    border: 1px solid grey;
+    font-size: 20px;
+    border: 2px solid #c06014;
     border-left: none;
     cursor: pointer;
 }
@@ -58,15 +69,21 @@
     margin-top: 150px;
 }
 
-#pressCursor {
-    cursor: pointer;
-    font-family: 'Exo', sans-serif;
-    font-weight: bold;
+::placeholder {
+    color: #000000;
 }
 
-.homeTitle {
-    display: block;
-    margin-top: 200px;
+.video {
+    margin-left: auto;
+}
+
+
+#pressCursor {
+    cursor: pointer;
+    font-family: 'Alfa Slab One', serif;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
 }
 
 .button {
@@ -76,19 +93,28 @@
 }
 
 .showDesc {
-    width: 35%;
+    width: 30%;
     text-align: left;
+    margin-right: auto; 
+    margin-left: auto;
+    font-family: 'Gentium Book Basic', serif;
+    color: #000000;
+    font-weight: bold;
     float: right;
-    margin-right: 300px; 
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-family: 'Exo', sans-serif;
+    margin-right: 350px;
+}
+
+#resultsInfo {
+    text-align: center;
 }
 
 .searchInput {
     margin-top: 0px;
 }
 
+img {
+    border: 2px solid #6e6b70;
+}
 
 #js-error-message {
     text-align: center;
