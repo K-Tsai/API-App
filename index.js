@@ -42,7 +42,7 @@ function displayResults(responseJson) {
       $('#resultsInfo').append(`
          <h1 class= "formTitle">${responseJson.Similar.Info[i].Name}</h1>
          <iframe class = 'video' width="520" height="415"
-         src="${responseJson.Similar.Info[i].yUrl}"> 
+         src="${responseJson.Similar.Info[i].yUrl}">
          </iframe>
          <p class = 'showDesc'>${responseJson.Similar.Info[i].wTeaser}</p>`)
       };
@@ -116,10 +116,11 @@ function getShow(searchTerm, limit = 6) {
       });
 }
 
-function watchForm(youTubeID) {
+function watchForm() {
    $('form').submit(event => {
       event.preventDefault();
       const searchTerm = $('.homeInput').val();
+      $(".homeTitle").addClass("hidden");
       empty(); 
       if (searchTerm) {
          getShow(searchTerm);
