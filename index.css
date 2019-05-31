@@ -1,16 +1,67 @@
+* {
+    background: #cdcdcd;
+}
 .container {
     display: block;
     text-align: center;
-    margin-top: 100px;
 }
 
-#homeInput {
-    margin-top: 300px;
+.homeTitle {
+    font-family: 'Alfa Slab One', serif;
+    margin-bottom: 300px;
+    display: block;
+    margin-top: 200px;
+    color: #000000;
+}
+
+.searchBar {
+    margin-bottom: 300px;
+}
+
+#thumbnail, img {
+    cursor: pointer;
+}
+
+.homeInput {
+    display: block;
+    font-family: 'Gentium Book Basic', serif;
+    padding: 5px;
+    font-size: 20px;
+    border: 2px solid #c06014;
+    float: left;
+    width: 10%;
+    background: #eddbcd;
+    margin-left: 42%;
+}
+form {
+    display: flex;
+}
+
+.formTitle {
+    font-family: 'Alfa Slab One', serif;
+    color: #000000;
+    text-transform: uppercase;
+    text-align:center;
+}
+
+.homeButton {
+    font-family: 'Gentium Book Basic', serif;
+    display: block;
+    width: 4%;
+    float: left;
+    padding: 5px;
+    background: #c06014;
+    color: white;
+    font-size: 20px;
+    border: 2px solid #c06014;
+    border-left: none;
+    cursor: pointer;
 }
 
 .hidden {
     display: none;
 }
+
 #results-list {
     list-style-type: none;
     display: flex;
@@ -19,13 +70,23 @@
     margin-top: 150px;
 }
 
-#pressCursor {
-    cursor: pointer;
+::placeholder {
+    color: #000000;
 }
 
-.homeTitle {
-    display:block;
-    margin-top: 200px;
+.video {
+    margin-left: auto;
+}
+
+
+#pressCursor {
+    cursor: pointer;
+    font-family: 'Alfa Slab One', serif;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
+    height: 44px;
+    width: 200px;
 }
 
 .button {
@@ -35,21 +96,118 @@
 }
 
 .showDesc {
-    width: 27%;
+    width: 35%;
     text-align: left;
+    margin-top:0px;
+    margin-left: auto;
+    font-family: 'Gentium Book Basic', serif;
+    color: #000000;
+    font-weight: bold;
     float: right;
-    margin-right: 300px; 
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-right: 15%;
 }
 
+#resultsInfo {
+    text-align: center;
+}
 
 .searchInput {
     margin-top: 0px;
 }
 
+img {
+    border: 2px solid #6e6b70;
+}
 
 #js-error-message {
     text-align: center;
     color:red;
+}
+
+@media screen and (max-width : 1508px) and (min-width : 769px){
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    iframe {
+        width: 50%;
+        height: 400px;
+    }
+
+    form {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .homeInput {
+        width: 20%;
+        margin-left:0px;
+    }
+
+    .homeButton {
+        width: 10%;
+    }
+    .showDesc{
+        font-size: 17px;
+        margin-right:0;
+        width:100%;
+    }
+    #results-list {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width : 768px) and (min-width: 0px) {
+
+    #pressCursor {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .searchBar {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .homeTitle {
+        text-align: center;
+    }
+    iframe {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .showDesc {
+        width: 100%; 
+        font-size: 14px;
+        margin-right: 0px;
+    }
+    #results-list {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 40px;
+    }
+
+    .homeInput {
+        width: 30%;
+        margin-left:0px;
+    }
+    .homeButton {
+        width: 20%;
+    }
+    form {
+        display:flex;
+        justify-content: center;
+    }
 }
