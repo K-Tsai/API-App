@@ -17,8 +17,8 @@
    <div class="container">
          <h1 class = 'homeTitle'>ENTER YOUR FAVORITE SHOW BELOW</h1>
       <form>
-			   <input type = 'text' id='homeInput' class='homeInput' placeholder = "Search Here" required>
-            <button type = 'submit' class= 'homeButton'>Search</button>
+			   <input type = 'text' id='homeInput' class='homeInput' role ="inputValue" aria-live = "assertive" placeholder = "Search Here" required>
+            <button type = 'submit' class= 'homeButton' aria-controls="homeInput">Search</button>
       </form>
       
       <section id="results">

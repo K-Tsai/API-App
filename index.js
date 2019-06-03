@@ -51,8 +51,8 @@ function displayResults(responseJson) {
       };
    } else {
       $('form').append(`
-         <input type = 'text' class='homeInput' placeholder = "Search Another Show" required>
-         <button type = 'submit' class= 'homeButton'>Search</button>
+         <input type = 'text' class='homeInput' placeholder = "Search Another Show" role ="inputValue" aria-live = "assertive" required>
+         <button type = 'submit' class= 'homeButton' aria-controls="homeInput">Search</button>
          <p>Please Enter in a Valid Input</p>`
       ); 
    }
