@@ -15,17 +15,23 @@
 </head>
 <body>
    <div class="container">
+      <div class ="fontColor">
          <h1 class = 'homeTitle'>ENTER YOUR FAVORITE SHOW BELOW</h1>
+         <h2 class ='homeDesc'>FIND INFORMATION ON YOUR SHOWS</h2>
+         <h2 class = 'homeDesc2'>LOOK AT RECOMMENDATIONS</h2>
+      </div>
       <form>
+			   <input type = 'text' id='homeInput' class='homeInput'  role ="inputValue" aria-live = "assertive" placeholder = "Search Here" required>
+            <button type = 'submit' class= 'homeButton' role= "buttonClick" aria-controls ="homeInput">Search</button
 			   <input type = 'text' id='homeInput' class='homeInput' role ="inputValue" aria-live = "assertive" placeholder = "Search Here" required>
             <button type = 'submit' class= 'homeButton' aria-controls="homeInput">Search</button>
       </form>
       
-      <section id="results">
-         <div id = "searchBar"></div>
-         <div id = 'resultsInfo' ></div>
-         <ul id="results-list"></ul>
-         <p id="js-error-message" class="error-message"></p>
+      <section id="results" aria-live ="assertive">
+         <div id = "searchBar" aria-live = "assertive"></div>
+         <div id = 'resultsInfo' aria-live = "assertive"></div>
+         <ul id="results-list" aria-live = "assertive"></ul>
+         <p id="js-error-message" class="error-message" aria-live = "assertive"></p>
       </section>
    </div>
    <script src="index.js"></script>
