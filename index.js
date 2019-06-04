@@ -16,11 +16,11 @@ function empty() {
    $("#results-list").empty();
 }
 
-function hideTitle() {
+function addClasses() {
    $(".homeTitle").addClass("hidden");
    $(".homeDesc").addClass("hidden");
    $(".homeDesc2").addClass("hidden");
-   $("body").toggleClass("backgroundColor")
+   $("body").addClass("backgroundColor")
 }
 
 function clickRec() {
@@ -41,8 +41,8 @@ function displayResults(responseJson) {
    empty();
    if (responseJson.Similar.Info[0].Type !== "unknown") {
       $("form").append(`
-         <input type = "text" class= "homeInput" placeholder = "Search Another Show" required>
-         <button type = "submit" class= "homeButton">Search</button>
+         <input type = "text" role ="inputValue" aria-live = "assertive" class= "homeInput" placeholder = "Search Another Show" required>
+         <button type = "submit" role = "buttonClick" aria-controls= "homeInput" class= "homeButton">Search</button>
       `);
       for (let i = 0 ; i < responseJson.Similar.Info.length ; i++) {
          $("#resultsInfo").append(`
@@ -58,17 +58,12 @@ function displayResults(responseJson) {
       }
    } else {
       $("form").append(`
-         <input type = 'text' class='homeInput' role ="inputValue" aria-live = "assertive" placeholder = "Search Another Show" required>
-         <button type = 'submit' role = "buttonClick" aria-controls= "homeInput" class= 'homeButton'>Search</button>
+         <input type = "text" class="homeInput" role ="inputValue" aria-live = "assertive" placeholder = "Search Another Show" required>
+         <button type = "submit" role = "buttonClick" aria-controls= "homeInput" class= "homeButton">Search</button>
       `); 
       $("#resultsInfo").append(`
       <p class = "errorMessage">No results were found from your search, please try another show.</p>
       `);
-      $('form').append(`
-         <input type = 'text' class='homeInput' placeholder = "Search Another Show" role ="inputValue" aria-live = "assertive" required>
-         <button type = 'submit' class= 'homeButton' aria-controls="homeInput">Search</button>
-         <p>Please Enter in a Valid Input</p>`
-      ); 
    }
 } 
 
@@ -134,7 +129,7 @@ function watchForm() {
    $('form').submit(event => {
       event.preventDefault();
       const searchTerm = $('.homeInput').val();
-      hideTitle();
+      addClasses();
       empty(); 
       if (searchTerm) {
          getShow(searchTerm);

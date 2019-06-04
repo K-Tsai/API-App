@@ -1,6 +1,6 @@
 body {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://images.unsplash.com/photo-1517008777537-a196537a0142?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80"); 
-    background-size: cover; 
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://images.unsplash.com/photo-1517008777537-a196537a0142?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80") no-repeat center center fixed;; 
+    background-size: cover;  
 }
 
 .backgroundColor {
@@ -81,9 +81,6 @@ body {
     color: #000000;
 }
 
-
-
-
 #pressCursor {
     cursor: pointer;
     font-family: 'Alfa Slab One', serif;
@@ -151,7 +148,7 @@ img {
     color:red;
 }
 
-@media screen and (max-width : 1508px) and (min-width : 769px){
+@media screen and (max-width : 1508px) and (min-width : 769px) {
     .container {
         display: flex;
         flex-direction: column;
@@ -189,7 +186,6 @@ img {
 }
 
 @media screen and (max-width : 768px) and (min-width: 0px) {
-
     #pressCursor {
         margin-right: auto;
         margin-left: auto;
@@ -238,11 +234,17 @@ img {
         width: 30%;
         margin-left:0px;
     }
+
     .homeButton {
         width: 20%;
     }
+
     form {
         display:flex;
         justify-content: center;
+    }
+
+    .formTitle {
+        margin-bottom: 19.920px;
     }
 }
