@@ -64,6 +64,11 @@ function displayResults(responseJson) {
       $("#resultsInfo").append(`
       <p class = "errorMessage">No results were found from your search, please try another show.</p>
       `);
+      $('form').append(`
+         <input type = 'text' class='homeInput' placeholder = "Search Another Show" role ="inputValue" aria-live = "assertive" required>
+         <button type = 'submit' class= 'homeButton' aria-controls="homeInput">Search</button>
+         <p>Please Enter in a Valid Input</p>`
+      ); 
    }
 } 
 
