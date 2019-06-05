@@ -1,3 +1,8 @@
+body {
+   background:  url('https://images.unsplash.com/photo-1542568347268-cb3e230a1cfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80') no-repeat center center fixed;
+   background-size: cover;
+}
+
 header {
     text-align: center;
 }
@@ -19,9 +24,6 @@ form {
     background: #cdcdcd;
 }
 
-.fontColor{ 
-    color: #c06014;
-}
 
 .container {
     display: flex;
