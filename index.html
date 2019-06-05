@@ -14,15 +14,18 @@
    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
 </head>
 <body>
+   <header>
+      <h1 class = 'homeTitle'>ENTER YOUR FAVORITE SHOW BELOW</h1>
+      <h2 class ='homeDesc'>FIND INFORMATION ON YOUR SHOWS</h2>
+      <h2 class = 'homeDesc2'>LOOK AT RECOMMENDATIONS</h2>
+   </header>
    <div class="container">
-      <div class ="fontColor">
-         <h1 class = 'homeTitle'>ENTER YOUR FAVORITE SHOW BELOW</h1>
-         <h2 class ='homeDesc'>FIND INFORMATION ON YOUR SHOWS</h2>
-         <h2 class = 'homeDesc2'>LOOK AT RECOMMENDATIONS</h2>
-      </div>
       <form>
-			<input type = 'text' id='homeInput' class='homeInput'  role ="inputValue" aria-live = "assertive" placeholder = "Search Here" required>
-         <button type = 'submit' class= 'homeButton' role= "buttonClick" aria-controls ="homeInput">Search</button>
+         <fieldset>
+            <legend>Input Button for TV Show</legend>
+			   <input type = 'text' id='homeInput' class='homeInput'  role ="inputValue" aria-live = "assertive" placeholder = "Search Here" required>
+            <button type = 'submit' class= 'homeButton' role= "buttonClick" aria-controls ="homeInput">Search</button>
+         </fieldset>
       </form>
       <section id="results" aria-live ="assertive">
          <div id = "searchBar" aria-live = "assertive"></div>

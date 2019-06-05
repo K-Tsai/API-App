@@ -1,6 +1,18 @@
-body {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("https://images.unsplash.com/photo-1517008777537-a196537a0142?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80") no-repeat center center fixed;; 
-    background-size: cover;  
+header {
+    text-align: center;
+}
+
+fieldset {
+    border: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+legend {
+    display: none;
+}
+
+form {
+    margin-top: 40px;
 }
 
 .backgroundColor {
@@ -154,6 +166,15 @@ img {
         flex-direction: column;
     }
 
+    li {
+        margin-left:10px;
+        margin-right:10px;
+    }
+
+    .homeTitle {
+        margin-top: 100px;
+    }
+
     iframe {
         width: 50%;
         height: 400px;
@@ -191,8 +212,21 @@ img {
         margin-left: auto;
     }
 
+    form {
+        margin-top: 20px
+    }
+
+    .homeDesc2 {
+        margin-bottom: 150px;
+    }
+
     .showDesc {
         margin-top: 15px;
+    }
+
+    li {
+        margin-left:10px;
+        margin-right:10px;
     }
 
     .searchBar {
@@ -201,6 +235,7 @@ img {
         justify-content: center;
     }
     .homeTitle {
+        margin-top: 0px;
         text-align: center;
     }
     iframe {
@@ -231,12 +266,12 @@ img {
     }
 
     .homeInput {
-        width: 30%;
+        width: 35%;
         margin-left:0px;
     }
 
     .homeButton {
-        width: 20%;
+        width: 25%;
     }
 
     form {
