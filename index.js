@@ -1,7 +1,7 @@
 const apiKey= "335136-ShowFind-BZJT4Z3C";
 const youTubeApiKey= "AIzaSyDY6tZooYg2-diCPVzj-QC97jxBZczDfSQ";
 const searchURL = "https://tastedive.com/api/similar";
-// const corsURL= "https://cors-anywhere.herokuapp.com/";
+const corsURL= "https://cors-anywhere.herokuapp.com/";
 const youTubeURL = "https://www.googleapis.com/youtube/v3/videos";  
 
 function formatParams(params){
@@ -86,7 +86,7 @@ function getThumbnail (youTubeID, showName) {
    }
 
    const queryString = formatParams(params);
-   const url = youTubeURL + '?' + queryString;
+   const url = corsURL+ youTubeURL + '?' + queryString;
 
    fetch(url)
       .then(response => {
